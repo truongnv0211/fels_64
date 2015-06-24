@@ -7,4 +7,10 @@ en:
   home: "Home"
   help: "Help"
   log_in: "Log in"
-  sign_up: "Sign up now"
+  sign_up: "Sign up"
+  
+  welcome: "Welcome to the Framgia e-learning!"
+  comfirmation: "Comfirmation"
+  create_my_account: "Create my account"
+  name: "Name"
+  introduce: "This is the home page for Framgia e-learning center."
