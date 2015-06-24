@@ -8,7 +8,12 @@ en:
   help: "Help"
   log_in: "Log in"
   sign_up: "Sign up"
-  
+  profile: "Profile"
+  acount: "Acount"
+  user: "User"
+  new_user: "New user?"
+  alert_login_invalid: "Invalid email or password !!!"
+  alert_login_success: "Successful! Wellcome to E-learning system"
   welcome: "Welcome to the Framgia e-learning!"
   comfirmation: "Comfirmation"
   create_my_account: "Create my account"
