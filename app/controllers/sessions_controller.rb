@@ -5,14 +5,9 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password])
-      if user.admin?
-        log_in user
-        redirect_to admin_root_path
-      else
-        log_in user
-        flash[:success] = t :alert_login_success
-        redirect_to user
-      end
+      params[:session][:remember_me] == Settings.CHECKBOOK_TRUE ? 
+        remember(user) : forget(user)
+      redirect_to user.admin? ? admin_root_path : user
     else
       flash.now[:danger] = t :alert_login_invalid
       render "new"
