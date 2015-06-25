@@ -19,3 +19,8 @@ en:
   create_my_account: "Create my account"
   name: "Name"
   introduce: "This is the home page for Framgia e-learning center."
+  admin: "Administration"
+  manager_categories: "Manager Categories"
+  manager_words: "Manager Words"
+  required_user_logged: "Please log in !!"
+  required_admin_logged: "Must be a admin log in !!"
