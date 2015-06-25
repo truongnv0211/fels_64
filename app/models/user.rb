@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token
+
   before_save ->{self.email = email.downcase}
 
   has_many :lessons, dependent: :destroy
@@ -21,12 +23,23 @@ class User < ActiveRecord::Base
     BCrypt::Password.create string, cost: cost
   end
 
+  # Returns a random token.
   def self.new_token
-    SeureRandom.urlsafe_base64
+    SecureRandom.urlsafe_base64
   end
 
   def remember
     self.remember_token = User.new_token
-    update_attributes :remember_digest, User.digest(remember_token)
+    update_attribute :remember_digest, User.digest(remember_token)
+  end
+
+  def forget
+    update_attribute :remember_digest, nil
+  end
+
+  def authenticated? attribute, token
+    digest = send "#{attribute}_digest"
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password? token
   end
 end

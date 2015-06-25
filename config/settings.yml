@@ -1,5 +1,5 @@
 VALID_EMAIL_REGEX: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-
+CHECKBOOK_TRUE: "1"
 email_maximum: 255
 name_maximum: 50
 password_minimum: 6
