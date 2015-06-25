@@ -14,4 +14,19 @@ class User < ActiveRecord::Base
             length: {minimum: Settings.password_minimum}
 
   has_secure_password
+
+  def self.digest string
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create string, cost: cost
+  end
+
+  def self.new_token
+    SeureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attributes :remember_digest, User.digest(remember_token)
+  end
 end
