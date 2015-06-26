@@ -7,7 +7,7 @@ class CreateWords < ActiveRecord::Migration
       t.string :answer_2
       t.string :answer_3
       t.string :answer_4
-      t.integer :category_id
+      t.integer :lesson_id
 
       t.timestamps null: false
     end
