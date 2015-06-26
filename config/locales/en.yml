@@ -32,3 +32,7 @@ en:
   login_warning: "Please log in."
   image_size_error: "should be less than 5MB"
   update_avatar: "Update avatar"
+  all_users: "All users"
+  delete: Delete
+  confirm_delete: "You sure?"
+  user_delete_message: "User deleted!"
