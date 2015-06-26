@@ -1,0 +1,10 @@
+<%= link_to t("new_category"), new_admin_category_path %>
+<hr />
+<h1><%= t :list_category %></h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= render @categories %>
+    <%= will_paginate @categories %>
+  </div>
+</div>
+
