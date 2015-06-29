@@ -14,5 +14,10 @@ image_size_accept: 5
 avata_default: avatar.jpg
 size_picture_display: 100x100
 size_picture_display_small: 50x50
+size_picture_display_icon: 30x30
 users_per_index: 10
 categoies_per_page: 3
+following_type: "following"
+follow_type:
+  - following
+  - followers

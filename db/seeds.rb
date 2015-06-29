@@ -6,22 +6,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Category.create! [{title: "Anh đến Nhật Bản khi nào?",
-                   description: "Hôm nay tại kí túc xá dành cho du học sinhmà chị Anna
-                                 sống có một bữa tiệc dành cho các
-                                 sinh viên người nước ngoài. Chị Anna giới thiệu
-                                 anh Rodrigo, bạn cùng lớp người Mexico với chị Sakura."},
-                  {title: "Chị nhất định đến nhé!",
-                   description: "Kí túc xá dành cho du học sinh nơi chị Anna sống sẽ
-                                 có một bữa tiệc. Chị Anna mời chị Sakura tham dự."},
-                  {title: "Tất cả mọi người có mặt chưa?",
-                   description: "Hôm nay, chị Anna có buổi khám sức khỏe tại trường đại học.
-                                 Các sinh viên đã tập trung tại nơi khám sức khỏe"},
-                  {title: "Xin thày nói lại một lần nữa ạ!",
-                   description: "Chị Anna đang ở trong lớp tiếng Nhật của Giáo sư Suzuki ở trường."},
-                  {title: "Số điện thoại của chị là bao nhiêu?",
-                   description: "Chị Anna va chị Sakura tiếp tục trò chuyện trong phòng chị Anna.
-                                 Chị Sakura muốn hỏi chị Anna số điện thoại của chị Anna."}]
+# Category.create! [{title: "Anh đến Nhật Bản khi nào?",
+#                    description: "Hôm nay tại kí túc xá dành cho du học sinhmà chị Anna
+#                                  sống có một bữa tiệc dành cho các
+#                                  sinh viên người nước ngoài. Chị Anna giới thiệu
+#                                  anh Rodrigo, bạn cùng lớp người Mexico với chị Sakura."},
+#                   {title: "Chị nhất định đến nhé!",
+#                    description: "Kí túc xá dành cho du học sinh nơi chị Anna sống sẽ
+#                                  có một bữa tiệc. Chị Anna mời chị Sakura tham dự."},
+#                   {title: "Tất cả mọi người có mặt chưa?",
+#                    description: "Hôm nay, chị Anna có buổi khám sức khỏe tại trường đại học.
+#                                  Các sinh viên đã tập trung tại nơi khám sức khỏe"},
+#                   {title: "Xin thày nói lại một lần nữa ạ!",
+#                    description: "Chị Anna đang ở trong lớp tiếng Nhật của Giáo sư Suzuki ở trường."},
+#                   {title: "Số điện thoại của chị là bao nhiêu?",
+#                    description: "Chị Anna va chị Sakura tiếp tục trò chuyện trong phòng chị Anna.
+#                                  Chị Sakura muốn hỏi chị Anna số điện thoại của chị Anna."}]
 japanese = <<-EOS
  水 曜 日 に お 届 け す る に は 今 か ら 時 間 分 以 内 に お 急 ぎ
  便 ま た は 当 お 急 ぎ 便 を 選 択 し て 注 文 を 確 定 し て く だ
@@ -58,3 +58,25 @@ japaneses.each_with_index do |word, index|
                answer_1: answer_1,answer_2: answer_2,
                answer_3: answer_3,answer_4: answer_4,category_id: category_id)
 end
+
+User.create!(username:  "Admin DV",
+             email: "dev.ducvu@gmail.com",
+             password:              "abc123",
+             password_confirmation: "abc123",
+             admin: true)
+50.times do |n|
+  name  = Faker::Name.name
+  email = "dev.ducvu-#{n+1}@gmail.com"
+  password = "abc123"
+  User.create!(username: name,
+              email: email,
+              password:              password,
+              password_confirmation: password)
+end
+
+users = User.all
+user  = users.first
+following = users[2..20]
+followers = users[3..20]
+following.each {|followed| user.follow(followed)}
+followers.each {|follower| follower.follow(user)}
