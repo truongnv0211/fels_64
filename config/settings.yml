@@ -14,3 +14,5 @@ image_type_accept: image/jpeg,image/gif,image/png
 image_size_accept: 5
 avata_default: avatar.jpg
 size_picture_display: 100x100
+size_picture_display_small: 50x50
+users_per_index: 10

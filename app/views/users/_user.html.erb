@@ -1,0 +1,9 @@
+<li>
+  <%= image_tag user.picture? ? user.picture.url : Settings.avata_default,
+    size: Settings.size_picture_display_small %>
+  <%= link_to user.username, user %>
+  <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to t("delete"), user, method: :delete,
+    data: {confirm: t("confirm_delete")} %>
+  <% end %>
+</li>
