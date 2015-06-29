@@ -1,0 +1,20 @@
+<%= link_to t("new_word"), new_admin_word_path %>
+<hr />
+<h1><%= t :list_word %></h1>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table-striped table-condensed">
+      <thead>
+        <tr>
+          <th><%= t :jp_word %></th>
+          <th><%= t :category_title %></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @words %>
+      </tbody>
+    </table>
+    <%= will_paginate @words %>
+  </div>
+</div>

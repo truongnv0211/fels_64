@@ -21,3 +21,4 @@ following_type: "following"
 follow_type:
   - following
   - followers
+words_per_page: 20
