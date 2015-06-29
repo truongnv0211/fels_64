@@ -1,0 +1,6 @@
+<h3><%= category.title %></h3>
+<i><%= Word.located_in(category).count %> - <%= t :words %></i>
+<p><%= category.description %></p>
+<%= link_to t("edit"), edit_admin_category_path(category) %> -
+<%= link_to t("delete"), admin_category_path(category) ,method: :delete, data: {confirm: t("confirm_delete")} %>
+<hr />

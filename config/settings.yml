@@ -1,9 +1,8 @@
 VALID_EMAIL_REGEX: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-CHECKBOOK_TRUE: "1"
+CHECKBOX_TRUE: "1"
 email_maximum: 255
 name_maximum: 50
 password_minimum: 6
-
 image_type:
   - jpg
   - jpeg
@@ -16,3 +15,4 @@ avata_default: avatar.jpg
 size_picture_display: 100x100
 size_picture_display_small: 50x50
 users_per_index: 10
+categoies_per_page: 3
