@@ -1,0 +1,7 @@
+<section class="user_info">
+  <h3>
+    <%= image_tag @user.picture? ? @user.picture.url : Settings.avata_default,
+      size: Settings.size_picture_display %>
+    <%= @user.username %>
+  </h3>
+</section>

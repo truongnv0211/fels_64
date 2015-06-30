@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root               "static_pages#home"
 
   get "help"      => "static_pages#help"
@@ -11,10 +10,12 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
 
   resources :users
+  resources :relationships, only: [:create, :destroy]
+
+  get "/users/:id/:type" => "relationships#index", as: "follow"
 
   namespace :admin do
     root "dashboard#index"
     resources :categories
   end
-
 end

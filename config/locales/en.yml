@@ -47,3 +47,8 @@ en:
   delete: Delete
   confirm_delete: "You sure?"
   user_delete_message: "User deleted!"
+
+  following: "Following"
+  followers: "Followers"
+  follow: "Follow"
+  unfollow: "Unfollow"
