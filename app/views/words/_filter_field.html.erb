@@ -1,0 +1,25 @@
+<div class="row">
+  <%= form_for words_path, method: :get do |f| %>
+    <p><%= t :categories %></p>
+    <div id="search-field">
+      <div class="col-md-4">
+       <%= select_tag "category_id", options_from_collection_for_select(@categories,
+           "id", "title",
+           params[:category_id]), include_blank: t("all"),
+           class: "form-control" %>
+       <%= f.submit t("filter"), class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="col-md-8" id="group-rad">
+      <% @filter.each do |type| %>
+        <%= label_tag type, class: "radio-inline" do %>
+          <%= radio_button_tag :filter_type, type,
+            checked = (params[:filter_type] == type ||
+            params[:filter_type].blank?) %>
+          <%= type.titleize %>
+        <% end %>
+      <% end %>
+    </div>
+    <hr />
+  <% end %>
+</div>

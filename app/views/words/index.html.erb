@@ -1,0 +1,14 @@
+<%= render "filter_field" %>
+<br /><hr />
+<table class="table-striped table-condensed" border="1">
+  <thead>
+    <tr>
+      <th><%= t :id %></th>
+      <th><%= t :jp_word %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @words %>
+  </tbody>
+</table>
+<%= will_paginate @words %>

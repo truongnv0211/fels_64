@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users
   resources :relationships, only: [:create, :destroy]
   resources :categories
+  resources :words
 
   namespace :admin do
     root "dashboard#index"
