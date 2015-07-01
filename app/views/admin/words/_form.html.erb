@@ -1,0 +1,16 @@
+<%= form_for [:admin, @word] do |f| %>
+  <%= f.label :jp_word %>
+  <%= f.text_field :jp_word, class: "form-control", required: true %>
+
+  <%= f.fields_for :answers do |builder| %>
+    <%= render "answer_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_fields t("add_answer"), f, :answers, "btn btn-sm btn-primary" %>
+  <br /><br />
+
+  <%= f.label :category %>
+  <%= f.collection_select :category_id, @categories, :id , :title,
+      {prompt: true, selected: :first}, class: "form-control" %>
+
+  <%= f.submit t("submit"), class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,23 @@
+<table class="table-striped table-condensed">
+  <tr>
+    <th><%= t :jp_word %></th>
+    <td>: <%= @word.jp_word %></td>
+  </tr>
+  <% @word.answers.each_with_index do |answer, index| %>
+    <tr>
+      <th><%= t "answer_#{index+1}" %></th>
+      <% if answer.correct %>
+        <td>: <%= answer.answer_content %><%= t :correct %></td>
+      <% else %>
+        <td>: <%= answer.answer_content %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  <tr>
+    <th><%= t :category %></th>
+    <td>: <%= @word.category.title %></td>
+  </tr>
+  <tr>
+    <th><%= link_to t("back"), admin_words_path %></th>
+  </tr>
+</table>

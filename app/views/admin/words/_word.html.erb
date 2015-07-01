@@ -1,0 +1,8 @@
+<tr>
+  <td><%= word.jp_word %></td>
+  <td><%= word.category.title %></td>
+  <td><%= link_to t("show"), admin_word_path(word) %></td>
+  <td><%= link_to t("edit"), edit_admin_word_path(word) %></td>
+  <td><%= link_to t("destroy"), admin_word_path(word), method: :delete,
+    data: {confirm: t("confirm_delete")} %></td>
+</tr>
