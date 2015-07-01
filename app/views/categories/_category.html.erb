@@ -1,0 +1,7 @@
+<div>
+  <h3><%= category.title %></h3>
+  <i><%= Word.located_in(category).count %> - <%= t :words %></i>
+  <p><%= category.description %></p>
+  <%= link_to t("start"), "#", class: "btn btn-sm pull-right btn-primary" %><br />
+</div>
+<hr />
