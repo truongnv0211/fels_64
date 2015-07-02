@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-2">
+    <br />
+    <%= image_tag @user.picture? ? @user.picture.url : Settings.avata_default,
+      size: Settings.size_picture_display_small %>
+  </div>
+  <div class="col-md-10">
+    <h3><%= lesson.user.username %></h3><%= t "learned" %>
+    <%= t "lesson" %> "<%= lesson.category.title %>"
+    (<%= lesson.created_at.day %>/<%= lesson.created_at.month %>/<%= lesson.created_at.year %>)
+    <hr>
+  </div>
+</div>

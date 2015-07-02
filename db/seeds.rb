@@ -45,6 +45,12 @@ User.create!(username:  "Admin DV",
               password_confirmation: password)
 end
 
+30.times do |n|
+  user_id = rand(1..5)
+  category_id = rand(1..3)
+  Lesson.create! user_id: user_id, category_id: category_id
+end
+
 users = User.all
 user  = users.first
 following = users[2..20]

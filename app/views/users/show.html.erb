@@ -7,4 +7,29 @@
       <%= render "follow_form" if logged_in? %>
     </section>
   </aside>
+  <div class="col-md-8">
+    <div class="col-md-6">
+      <br />
+      <%= link_to t("word_list"), words_path, class: "btn btn-lg btn-primary btn-block pull-right" %>
+    </div>
+    <div class="col-md-6">
+      <br />
+      <%= link_to t("lesson"), categories_path, class: "btn btn-lg btn-primary btn-block pull-left" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-4"></div>
+      <div class="col-md-8">
+        <b><%= t("activity") %></b>
+        <hr />
+        <% if @lessons.any? %>
+          <ol class="lessons">
+            <%= render @lessons %>
+          </ol>
+          <%= will_paginate @lessons %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
