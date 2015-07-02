@@ -9,4 +9,8 @@ class Word < ActiveRecord::Base
   validates :category_id, presence: true
 
   scope :located_in, ->category{where category_id: category.id}
+  scope :learned, ->user{where Settings.sql_query.get_learned, user.id}
+  scope :not_learned, ->user{where Settings.sql_query.get_not_learned, user.id}
+  scope :filter_category, ->category{where category: category if category.present?}
+  scope :get_all, ->user{where Settings.sql_query.get_all}
 end

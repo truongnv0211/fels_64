@@ -22,3 +22,12 @@ follow_type:
   - following
   - followers
 words_per_page: 20
+filters:
+  - get_all
+  - learned
+  - not_learned
+sql_query:
+  get_all: ""
+  get_learned: "id IN (SELECT word_id FROM lesson_words WHERE lesson_id IN (SELECT id FROM lessons WHERE user_id = ?))"
+  get_not_learned: "id NOT IN (SELECT word_id FROM lesson_words WHERE lesson_id IN (SELECT id FROM lessons WHERE user_id = ?))"
+
