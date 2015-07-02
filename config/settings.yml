@@ -30,4 +30,6 @@ sql_query:
   get_all: ""
   get_learned: "id IN (SELECT word_id FROM lesson_words WHERE lesson_id IN (SELECT id FROM lessons WHERE user_id = ?))"
   get_not_learned: "id NOT IN (SELECT word_id FROM lesson_words WHERE lesson_id IN (SELECT id FROM lessons WHERE user_id = ?))"
-
+  lessons_learned: "user_id = ?"
+  following_leaned: "id IN (SELECT followed_id FROM relationships WHERE  follower_id = ?) OR user_id = ?"
+lessons_per_page: 4
