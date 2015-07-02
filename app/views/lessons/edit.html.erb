@@ -1,0 +1,16 @@
+<div class="row">
+  <h3><%= @lesson.category.title %></h3>
+  <h4><span class="answer_counting"><%= t :answered %></span></h4>
+  <%= form_for @lesson, html: {class: "col-md-12"} do |f| %>
+    <%= f.fields_for :lesson_words do |builder| %>
+      <%= render "word", f: builder %>
+    <% end %>
+    <div class="col-md-2">
+    <%= f.submit t("result"), class: "btn btn-primary submit-answer hidden" %>
+    </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+  $(".answers").hide()
+  $(".answers:first").show()
+</script>

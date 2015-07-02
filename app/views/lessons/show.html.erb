@@ -1,0 +1,13 @@
+<div class="container">
+  <h4><%= @lesson.category.title %></h4>
+  <table class="table table-striple">
+    <tr>
+      <th></th>
+      <th><%= t(:jp_word) %></th>
+      <th><%= t(:answer_content) %></th>
+    </tr>
+    <tbody>
+      <%= render @lesson_words %>
+    </tbody>
+  </table>
+</div>
