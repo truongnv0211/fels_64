@@ -70,4 +70,6 @@ en:
   filter: "Filter"
   all: "All Word"
   learned: "learned"
-  lesson: "lesson"
+  lesson: "Lesson"
+  result: "Result"
+  answered: "0/20"

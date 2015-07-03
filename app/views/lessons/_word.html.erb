@@ -1,0 +1,10 @@
+<div class="answers">
+  <h3 class="col-md-6"><%= f.object.word.jp_word %></h3>
+  <div class="col-md-6">
+    <%= f.collection_radio_buttons :answer_id, f.object.word.answers,
+      :id, :answer_content do |item| %>
+      <%= item.label(class: "answer-selected btn btn-block btn-default") {
+        item.radio_button(class: "hidden") + item.text} %>
+    <% end %>
+  </div>
+</div>
