@@ -30,24 +30,8 @@ wordlist.each do |word|
   end
 end
 
-User.create!(username:  "Admin DV",
-             email: "dev.ducvu@gmail.com",
-             password:              "abc123",
-             password_confirmation: "abc123",
+User.create!(username:  "Admin",
+             email: "admin@gmail.com",
+             password:              "adminadmin",
+             password_confirmation: "adminadmin",
              admin: true)
-50.times do |n|
-  name  = Faker::Name.name
-  email = "dev.ducvu-#{n+1}@gmail.com"
-  password = "abc123"
-  User.create!(username: name,
-              email: email,
-              password:              password,
-              password_confirmation: password)
-end
-
-users = User.all
-user  = users.first
-following = users[2..20]
-followers = users[3..20]
-following.each {|followed| user.follow(followed)}
-followers.each {|follower| follower.follow(user)}
